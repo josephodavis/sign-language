@@ -20,7 +20,7 @@ Real-time American Sign Language (ASL) recognition using MediaPipe hand landmark
 
 ```
 sign-language/
-├── data prep.py     # Webcam tool for collecting and logging landmark data to CSV
+├── data_prep.py     # Webcam tool for collecting and logging landmark data to CSV
 ├── model.py         # Model definition and training script
 ├── testing.py       # Real-time inference using the trained model
 ├── letters.csv      # Self-collected landmark dataset (~12,700 samples, 24 classes)
@@ -34,7 +34,7 @@ sign-language/
 
 ## Dataset
 
-The dataset (`letters.csv`) was collected from scratch using `data prep.py`. Each row contains a class label (0 = A, 1 = B, …, 23 = Y, skipping J and Z) followed by 63 normalized landmark values. The dataset contains approximately 12,700 samples across 24 classes.
+The dataset (`letters.csv`) was collected from scratch using `data_prep.py`. Each row contains a class label (0 = A, 1 = B, …, 23 = Y, skipping J and Z) followed by 63 normalized landmark values. The dataset contains approximately 12,700 samples across 24 classes.
 
 ---
 
@@ -57,10 +57,10 @@ pip install mediapipe opencv-python tensorflow scikit-learn numpy keras
 
 ### Collect Training Data
 
-Run `data prep.py` to open your webcam and log landmark samples to `letters.csv`. Uncomment the `logging_csv` call at the bottom of the loop and set the label integer (0 = A, 1 = B, …, 23 = Y) before running.
+Run `data_prep.py` to open your webcam and log landmark samples to `letters.csv`. Uncomment the `logging_csv` call at the bottom of the loop and set the label integer (0 = A, 1 = B, …, 23 = Y) before running.
 
 ```bash
-python "data prep.py"
+python data_prep.py
 ```
 
 Press `q` to quit.
